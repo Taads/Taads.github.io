@@ -112,6 +112,10 @@ main {
     transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+.nav-toggle {
+  display: none;
+}
+
 .nav-link:hover {
   background: var(--accent-soft);
   border-color: var(--border-subtle);
@@ -195,6 +199,12 @@ h1 {
 .outline .space {
   display: inline-block;
   width: 0.3em;
+}
+
+/* Mantém cada palavra inteira ao quebrar linha */
+.outline .word {
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .hero-subtitle {
@@ -334,6 +344,7 @@ h1 {
     transparent 40%
   );
   mix-blend-mode: soft-light;
+  pointer-events: none;
 }
 
 .profile-image img {
@@ -499,6 +510,7 @@ h1 {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none; /* brilho decorativo: não pode bloquear botões da seção */
 }
 
 .section-header {
@@ -574,6 +586,7 @@ h2 {
   mask-composite: exclude;
   opacity: 0;
   transition: opacity 0.35s ease;
+  pointer-events: none; /* camada decorativa: não pode bloquear os links do card */
 }
 
 .project-card:hover::after,
@@ -617,6 +630,7 @@ h2 {
     rgba(0, 0, 0, 0.1)
   );
   mix-blend-mode: soft-light;
+  pointer-events: none;
 }
 
 .project-label {
@@ -820,6 +834,7 @@ h2 {
   opacity: 0;
   transform: translate3d(12px, -16px, 0);
   transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
   pointer-events: none;
 }
 
@@ -1476,6 +1491,11 @@ h2 {
   opacity: 1;
 }
 
+/* Trava a rolagem da página enquanto o destaque está aberto */
+html.focus-open {
+  overflow: hidden;
+}
+
 .focus-backdrop {
   position: absolute;
   inset: 0;
@@ -1642,10 +1662,80 @@ h2 {
   .logo {
     font-size: 11px;
     letter-spacing: 0.1em;
+    line-height: 1.4;
+  }
+
+  .header {
+    gap: 12px;
+  }
+
+  /* Menu mobile */
+  .nav-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    margin: -8px -6px -8px 0;
+    border: 1px solid var(--border-subtle);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    cursor: pointer;
+  }
+
+  .nav-toggle span {
+    width: 18px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--fg);
+    transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+
+  .header.is-open .nav-toggle span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .header.is-open .nav-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header.is-open .nav-toggle span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
   }
 
   .nav {
-    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    border-radius: 20px;
+    background: #070707;
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-soft);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  }
+
+  .header.is-open .nav {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-link {
+    font-size: 15px;
+    padding: 12px 16px;
+    justify-content: flex-start;
+    color: var(--fg);
   }
 
   .hero {
@@ -1658,7 +1748,7 @@ h2 {
   }
 
   .tag {
-    font-size: 10px;
+    font-size: 11px;
     padding: 3px 12px;
   }
 
@@ -1668,9 +1758,55 @@ h2 {
     margin-bottom: 14px;
   }
 
+  /* Contorno mais forte para o título vazado ficar legível em tela pequena */
+  .outline {
+    -webkit-text-stroke: 1.2px rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.08);
+  }
+
   .hero-subtitle {
-    font-size: 14px;
+    font-size: 15px;
     margin-bottom: 20px;
+  }
+
+  /* Card de perfil compacto: foto pequena ao lado das informações */
+  .profile-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px;
+    border-radius: 22px;
+  }
+
+  .profile-image {
+    flex-shrink: 0;
+    width: 88px;
+    height: 88px;
+    margin-bottom: 0;
+    border-radius: 16px;
+  }
+
+  .profile-image img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+  }
+
+  .profile-info {
+    text-align: left;
+  }
+
+  .profile-name {
+    display: none;
+  }
+
+  .profile-role {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .profile-tags span {
+    font-size: 12px;
   }
 
   .hero-actions {
@@ -1703,7 +1839,7 @@ h2 {
   }
 
   .social-btn {
-    font-size: 12px;
+    font-size: 13px;
     padding: 6px 12px;
   }
 
@@ -1740,7 +1876,7 @@ h2 {
 
   .floating-badge p {
     max-width: none;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1.3;
     margin: 0;
     white-space: normal;
@@ -1767,7 +1903,7 @@ h2 {
   }
 
   .section-subtitle {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   h2 {
@@ -1789,25 +1925,25 @@ h2 {
   }
 
   .project-content h3 {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
   }
 
   .project-content p {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .project-meta {
-    gap: 5px;
+    gap: 6px;
     margin-bottom: 10px;
   }
 
   .project-meta span {
-    font-size: 10px;
-    padding: 3px 8px;
+    font-size: 12px;
+    padding: 3px 9px;
   }
 
   .project-links {
-    font-size: 11px;
+    font-size: 13px;
     flex-direction: column;
     gap: 8px;
     align-items: flex-start;
@@ -1823,16 +1959,16 @@ h2 {
   }
 
   .timeline-item h3 {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 
   .timeline-item p {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .chip {
-    font-size: 10px;
-    padding: 3px 8px;
+    font-size: 12px;
+    padding: 3px 9px;
   }
 
   .tools-grid {
@@ -1850,18 +1986,18 @@ h2 {
   }
 
   .tool-card p {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .tool-card ul {
-    font-size: 11px;
-    padding-left: 16px;
-    gap: 3px;
+    font-size: 13px;
+    padding-left: 18px;
+    gap: 4px;
   }
 
   .tool-pill {
-    font-size: 9px;
-    padding: 2px 8px;
+    font-size: 11px;
+    padding: 3px 10px;
   }
 
   .chip-row {
@@ -1929,10 +2065,17 @@ h2 {
 
   .focus-card {
     width: calc(100% - 24px);
+    max-height: calc(100dvh - 32px);
+    overflow-y: auto;
     padding: 16px;
     grid-template-columns: 1fr;
     gap: 16px;
     border-radius: 20px;
+  }
+
+  .focus-close {
+    width: 44px;
+    height: 44px;
   }
 
   .focus-content h3 {
@@ -1976,8 +2119,8 @@ h2 {
   }
 
   .footer-social-link {
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
   }
 
   .footer-nav a,
@@ -2015,7 +2158,7 @@ h2 {
   }
 
   .hero-subtitle {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .section {
@@ -2064,11 +2207,11 @@ h2 {
   .floating-badge span {
     width: 22px;
     height: 22px;
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .floating-badge p {
-    font-size: 9px;
+    font-size: 11px;
     max-width: none;
     white-space: normal;
   }

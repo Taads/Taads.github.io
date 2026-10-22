@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     <title>Jesus Tadeu Bressiano</title>
-     <link rel="website icon" type="jpg"
-  href="imagens/J (2).png">
+     <link rel="icon" type="image/png" href="imagens/J (2).png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,7 +20,10 @@
 
     <header class="header">
       <div class="logo">Transformando ideias em experiências digitais</div>
-      <nav class="nav">
+      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="site-nav">
         <a href="#sobre" class="nav-link">Sobre</a>
         <a href="#projetos" class="nav-link">Projetos</a>
         <a href="#ferramentas" class="nav-link">Ferramentas</a>
@@ -50,16 +52,16 @@
             <div class="hero-socials">
               <span>Redes</span>
               <div class="social-buttons">
-                <a href="https://www.instagram.com/tadeu_bressiano/" target="_blank" class="social-btn">
+                <a href="https://www.instagram.com/tadeu_bressiano/" target="_blank" rel="noopener noreferrer" class="social-btn">
                   <span>Instagram</span>
                 </a>
-                <a href="https://www.linkedin.com/in/jesus-bressiano-b7512120a/" target="_blank" class="social-btn">
+                <a href="https://www.linkedin.com/in/jesus-bressiano-b7512120a/" target="_blank" rel="noopener noreferrer" class="social-btn">
                   <span>LinkedIn</span>
                 </a>
-                <a href="https://wa.me/5516991076826" target="_blank" class="social-btn">
+                <a href="https://wa.me/5516991076826" target="_blank" rel="noopener noreferrer" class="social-btn">
                   <span>WhatsApp</span>
                 </a>
-                <a href="https://github.com/Taads" target="_blank" class="social-btn">
+                <a href="https://github.com/Taads" target="_blank" rel="noopener noreferrer" class="social-btn">
                   <span>GitHub</span>
                 </a>
               </div>
@@ -69,7 +71,7 @@
           <div class="hero-profile">
             <div class="profile-card" data-parallax>
               <div class="profile-image">
-                <img src="imagens/Perfil.jpg" alt="Foto de perfil" />
+                <img src="imagens/Perfil.jpg" alt="Foto de Jesus Tadeu Bressiano" />
               </div>
               <div class="profile-info">
                 <p class="profile-name">Jesus Tadeu Bressiano</p>
@@ -292,7 +294,7 @@
             </div>
 
             <!-- WhatsApp -->
-            <a href="https://wa.me/5516991076826?text=Olá%20Jesus!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre..." target="_blank" class="social-card whatsapp-card">
+            <a href="https://wa.me/5516991076826?text=Olá%20Jesus!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre..." target="_blank" rel="noopener noreferrer" class="social-card whatsapp-card">
               <div class="social-card-icon">
                 <span class="icon-whatsapp">📱</span>
                 <div class="icon-glow"></div>
@@ -308,7 +310,7 @@
             </a>
 
             <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/jesus-bressiano-b7512120a/" target="_blank" class="social-card linkedin-card">
+            <a href="https://www.linkedin.com/in/jesus-bressiano-b7512120a/" target="_blank" rel="noopener noreferrer" class="social-card linkedin-card">
               <div class="social-card-icon">
                 <span class="icon-linkedin">💼</span>
                 <div class="icon-glow"></div>
@@ -324,7 +326,7 @@
             </a>
 
             <!-- GitHub -->
-            <a href="https://github.com/Taads" target="_blank" class="social-card github-card">
+            <a href="https://github.com/Taads" target="_blank" rel="noopener noreferrer" class="social-card github-card">
               <div class="social-card-icon">
                 <span class="icon-github">⚡</span>
                 <div class="icon-glow"></div>

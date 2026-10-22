@@ -10,11 +10,31 @@ const observer = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.18,
+    // Dispara assim que a seção entra na tela (porcentagem fixa falhava em seções altas
+    // em telas baixas, como celular deitado)
+    threshold: 0,
+    rootMargin: "0px 0px -10% 0px",
   }
 );
 
 sections.forEach((section) => observer.observe(section));
+
+// Menu mobile
+const header = document.querySelector(".header");
+const navToggle = document.querySelector(".nav-toggle");
+
+function setMenuOpen(open) {
+  header.classList.toggle("is-open", open);
+  navToggle.setAttribute("aria-expanded", String(open));
+  navToggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+}
+
+navToggle?.addEventListener("click", () => setMenuOpen(!header.classList.contains("is-open")));
+document.querySelectorAll(".nav-link").forEach((link) => link.addEventListener("click", () => setMenuOpen(false)));
+document.addEventListener("click", (e) => {
+  if (header.classList.contains("is-open") && !header.contains(e.target)) setMenuOpen(false);
+});
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") setMenuOpen(false); });
 
 // Dados dinâmicos dos projetos
 const projectsData = [
@@ -162,9 +182,11 @@ function openProjectFocus(project, card) {
 
   projectFocus.classList.add("is-open");
   projectFocus.setAttribute("aria-hidden", "false");
+  document.documentElement.classList.add("focus-open");
 }
 function closeProjectFocus() {
   if (!projectFocus) return;
+  document.documentElement.classList.remove("focus-open");
   projectFocus.classList.remove("is-open");
   projectFocus.setAttribute("aria-hidden", "true");
 }
@@ -176,6 +198,7 @@ if (projectFocus) {
 }
 focusClose?.addEventListener("click", closeProjectFocus);
 projectsGrid?.addEventListener("click", (e) => {
+  if (e.target.closest("a")) return; // links do card abrem só a página, sem o destaque
   const card = e.target.closest(".project-card");
   if (!card) return;
   const index = Number(card.dataset.projectIndex);
@@ -210,33 +233,43 @@ function animateTitle() {
   const titleElement = document.getElementById("animated-title");
   if (!titleElement) return;
 
+  // Espaço não separável mantém "Full Stack" junto na mesma linha
+  const text = "Desenvolvedor Full Stack";
+
   // Verifica se já foi animado (usando sessionStorage)
   const hasAnimated = sessionStorage.getItem("titleAnimated");
   if (hasAnimated) {
     // Se já animou antes, apenas mostra o texto normalmente
-    titleElement.textContent = "Desenvolvedor Full Stack";
+    titleElement.textContent = text;
     return;
   }
 
-  const text = "Desenvolvedor Full Stack";
   const letters = text.split("");
   
   // Limpa o conteúdo
   titleElement.innerHTML = "";
   
-  // Cria spans para cada letra
+  // Cria spans para cada letra, agrupadas por palavra para não quebrar no meio
+  let word = null;
   letters.forEach((letter, index) => {
     const span = document.createElement("span");
     if (letter === " ") {
       span.className = "space";
       span.innerHTML = "&nbsp;";
+      titleElement.appendChild(span);
+      word = null;
     } else {
+      if (!word) {
+        word = document.createElement("span");
+        word.className = "word";
+        titleElement.appendChild(word);
+      }
       span.className = "letter";
       span.textContent = letter;
       // Delay escalonado para cada letra (mais rápido no início, mais lento no final)
       span.style.animationDelay = `${index * 0.08}s`;
+      word.appendChild(span);
     }
-    titleElement.appendChild(span);
   });
 
   // Marca como animado
