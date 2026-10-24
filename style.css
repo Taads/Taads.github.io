@@ -438,53 +438,10 @@ h1 {
   margin: 0;
 }
 
-.scroll-indicator {
-  grid-column: 1 / -1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  margin-top: 12px;
-  opacity: 0.9;
-}
-
-.scroll-line {
-  width: 3px;
-  height: 64px;
-  border-radius: 999px;
-  background: linear-gradient(
-    to bottom,
-    rgba(110, 243, 255, 0.9),
-    rgba(255, 122, 209, 0.85),
-    rgba(160, 255, 143, 0.9)
-  );
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 0 12px rgba(110, 243, 255, 0.45);
-}
-
-.scroll-line::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, transparent, #ffffff, transparent);
-  transform: translateY(-100%);
-  animation: scrollPulse 1.9s infinite ease-in-out;
-}
-
-@keyframes scrollPulse {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(100%);
-  }
-}
-
 /* Sections genéricas */
 
 .section {
-  padding: 64px 16px 36px;
+  padding: 40px;
   border-radius: 26px;
   border: 1px solid rgba(255, 255, 255, 0.06);
   background: radial-gradient(circle at top left, #181818 0, #050505 52%);
@@ -720,6 +677,112 @@ h2 {
   width: 100%;
 }
 
+/* O card cresce com o conteúdo: descrição e links nunca são cortados */
+.carousel .project-card {
+  aspect-ratio: auto;
+  grid-template-rows: auto 1fr;
+}
+
+.carousel .project-image-wrapper {
+  aspect-ratio: 16 / 10;
+}
+
+/* Carrossel (projetos e competências) — só em telas maiores; no celular os cards ficam empilhados */
+
+.carousel-arrow {
+  display: none;
+}
+
+@media (min-width: 721px) {
+  .carousel {
+    --per-view: 3;
+    --gap: 24px;
+    position: relative;
+    padding: 0 56px;
+  }
+
+  .tools .carousel {
+    --gap: 20px;
+  }
+
+
+  .carousel .carousel-track {
+    display: grid;
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - (var(--per-view) - 1) * var(--gap)) / var(--per-view));
+    gap: var(--gap);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 2px; /* compensa o padding lateral: o 1º card encaixa em scrollLeft 0 */
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    /* espaço para o efeito de hover dos cards não ser cortado */
+    padding: 12px 2px 16px;
+    margin: -12px -2px -16px;
+  }
+
+  .carousel .carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carousel .carousel-track > * {
+    scroll-snap-align: start;
+  }
+
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 999px;
+    border: 1px solid var(--border-subtle);
+    background: rgba(5, 5, 5, 0.82);
+    backdrop-filter: blur(16px);
+    color: var(--fg);
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease,
+      opacity 0.25s ease;
+  }
+
+  .carousel-arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .carousel-arrow.prev {
+    left: 0;
+  }
+
+  .carousel-arrow.next {
+    right: 0;
+  }
+
+  .carousel-arrow:hover:not(:disabled) {
+    background: var(--accent-soft);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 12px rgba(110, 243, 255, 0.3);
+  }
+
+  .carousel-arrow:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 1100px) {
+  .carousel {
+    --per-view: 2;
+  }
+}
+
 /* Timeline */
 
 .timeline {
@@ -763,6 +826,30 @@ h2 {
   margin-top: 6px;
   background: linear-gradient(120deg, #ff9a9e, #fad0c4);
   box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.04);
+}
+
+/* Emprego atual: ponto em neon */
+.dot.current {
+  background: linear-gradient(120deg, var(--neon-1), var(--neon-3));
+  box-shadow: 0 0 0 6px rgba(110, 243, 255, 0.08), 0 0 14px rgba(110, 243, 255, 0.6);
+}
+
+.timeline-item .timeline-meta {
+  margin: -2px 0 8px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.section-header.subsection {
+  margin: 48px 0 24px;
+}
+
+.btn-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
 .chip {
@@ -835,7 +922,6 @@ h2 {
   transform: translate3d(12px, -16px, 0);
   transition: opacity 0.5s ease, transform 0.5s ease;
   pointer-events: none;
-  pointer-events: none;
 }
 
 .tool-card:hover {
@@ -871,6 +957,14 @@ h2 {
   gap: 4px;
 }
 
+.tool-pill svg {
+  width: 12px;
+  height: 12px;
+  margin-right: 4px;
+  vertical-align: -1px;
+  color: var(--neon-1);
+}
+
 .tool-pill {
   align-self: flex-start;
   margin-bottom: 4px;
@@ -887,13 +981,13 @@ h2 {
 /* CONTATO - VERSÃO PREMIUM E CHAMATIVA */
 .contact-wrapper {
   position: relative;
-  padding: 100px 0;
+  padding: 0;
   overflow: hidden;
 }
 
 .contact-hero {
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 48px;
 }
 
 .contact-hero-text h2 {
@@ -975,6 +1069,19 @@ h2 {
   background: radial-gradient(circle, var(--neon-1), transparent 70%);
   opacity: 0;
   transition: opacity 0.4s ease;
+}
+
+/* Telefone nunca quebra no meio */
+.whatsapp-card .social-card-content p {
+  white-space: nowrap;
+}
+
+.social-card-icon svg {
+  position: relative;
+  z-index: 1;
+  width: 44%;
+  height: 44%;
+  color: var(--fg);
 }
 
 .social-card:hover .social-card-icon {
@@ -1629,7 +1736,7 @@ html.focus-open {
   }
 
   .section {
-    padding: 48px 16px 28px;
+    padding: 32px;
     margin-bottom: 32px;
   }
 
@@ -1883,7 +1990,7 @@ html.focus-open {
   }
 
   .section {
-    padding: 40px 12px 24px;
+    padding: 20px;
     margin-bottom: 24px;
     border-radius: 20px;
   }
@@ -2006,11 +2113,11 @@ html.focus-open {
   }
 
   .contact-wrapper {
-    padding: 60px 0;
+    padding: 0;
   }
 
   .contact-hero {
-    margin-bottom: 60px;
+    margin-bottom: 32px;
   }
 
   .contact-hero-text h2 {
@@ -2162,7 +2269,7 @@ html.focus-open {
   }
 
   .section {
-    padding: 32px 8px 20px;
+    padding: 16px;
   }
 
   h2 {
@@ -2236,10 +2343,6 @@ html.focus-open {
   }
 
   /* Reduz animações em mobile para melhor performance */
-  .scroll-line::before {
-    animation-duration: 2.5s;
-  }
-
   .footer-glow {
     animation-duration: 10s;
   }

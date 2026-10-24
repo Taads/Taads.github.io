@@ -41,7 +41,7 @@ const projectsData = [
   {
     title: "Fluxo Transporte",
     type: "Web App",
-    description: "Plataforma de Fluxo onde o usuário pode ver e análise a otimização de redes de transporte urbano, distribuição de recursos e infraestrutura crítica.",
+    description: "Plataforma onde o usuário pode visualizar e analisar a otimização de redes de transporte urbano, distribuição de recursos e infraestrutura crítica.",
     image: "imagens/Fluxo.png",
     tags: ["HTML5", "CSS3", "JavaScript"],
     live: "https://luttudo.github.io/Fluxo/",
@@ -49,17 +49,17 @@ const projectsData = [
   },
   {
     title: "Universo Virtual",
-    type: "JOGO EM VR",
-    description: "Um jogo sobre o Sistema Solar com os detalhes de cada planeta, o projeto é voltado para a educação ajudando alunos de diversas idades a desenvolver o conhecimento sobre nossa galáxia.",
+    type: "TCC · Jogo em VR",
+    description: "Meu TCC: um jogo em realidade virtual sobre o Sistema Solar, com os detalhes de cada planeta. Voltado para a educação, ajuda alunos de diversas idades a ampliar o conhecimento sobre o espaço.",
     image: "imagens/SistemaSolar.jpg",
-    tags: ["Unity", "C#", "inteligência artificial", "Realidade Virtual"],
+    tags: ["Unity", "C#", "Inteligência Artificial", "Realidade Virtual"],
     live: "https://drive.google.com/file/d/1ErqufFEgrneTZhKJccy_CU5ySTvRUkxd/view?usp=sharing",
     repo: "https://github.com/Taads/TCC-SistemaSolar.git",
   },
   {
     title: "Gerador de Senha",
     type: "WEB APP",
-    description: "Um gerador de senhas para proteger suas contas, ele gera senhas de 7 a 30 caracteres com simbolos e números para a maior proteção. ",
+    description: "Gerador de senhas para proteger suas contas: cria senhas de 7 a 30 caracteres com símbolos e números para maior segurança.",
     image: "imagens/geradordesenha.png",
     tags: ["HTML", "CSS", "JavaScript"],
     live: "https://taads.github.io/Gerador-de-senhas/",
@@ -68,7 +68,7 @@ const projectsData = [
   {
     title: "Acolhendo Patas",
     type: "WEB APP",
-    description: "Desenvolvimento de um site para adoção onde você pode anunciar um pet ou adotar um, a aplicação foi desenvolvida para um projeto da faculdade.",
+    description: "Site de adoção onde é possível anunciar ou adotar um pet, desenvolvido como projeto da faculdade.",
     image: "imagens/Patas.png",
     tags: ["HTML", "CSS"],
     live: "https://github.com/Taads/AcolhendoPatas.git",
@@ -77,7 +77,7 @@ const projectsData = [
   {
     title: "MS Project",
     type: "WEB APP",
-    description: "Portfólio profissional para uma empresa de consultoria, o site também contem um sistema de venda do treinamento que a empresa fornece.",
+    description: "Portfólio profissional para uma empresa de consultoria, com um sistema de venda dos treinamentos que a empresa oferece.",
     image: "imagens/J&A.png",
     tags: ["HTML", "CSS", "JavaScript", "Canva"],
     live: "https://github.com/Taads/MS-Project.git",
@@ -217,6 +217,33 @@ surpriseButton?.addEventListener("click", () => {
 });
 
 renderProjects();
+
+// Carrossel com setas (sem rolagem automática); no celular as setas ficam ocultas pelo CSS
+function initCarousel(carousel) {
+  const track = carousel.querySelector(".carousel-track");
+  const prev = carousel.querySelector(".carousel-arrow.prev");
+  const next = carousel.querySelector(".carousel-arrow.next");
+  if (!track || !prev || !next) return;
+
+  const step = () => {
+    const card = track.firstElementChild;
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    return card ? card.offsetWidth + gap : track.clientWidth;
+  };
+  const update = () => {
+    const max = track.scrollWidth - track.clientWidth;
+    prev.disabled = track.scrollLeft <= 1;
+    next.disabled = track.scrollLeft >= max - 1;
+  };
+
+  prev.addEventListener("click", () => track.scrollBy({ left: -step() }));
+  next.addEventListener("click", () => track.scrollBy({ left: step() }));
+  track.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  update();
+}
+
+document.querySelectorAll("[data-carousel]").forEach(initCarousel);
 
 // Fundo reage ao scroll
 window.addEventListener("scroll", () => {

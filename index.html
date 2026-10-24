@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
-    <title>Jesus Tadeu Bressiano</title>
-     <link rel="icon" type="image/png" href="imagens/J (2).png">
+    <title>Jesus Tadeu Bressiano | Desenvolvedor e Analista de Suporte</title>
+    <meta name="description" content="Portfólio de Jesus Tadeu Bressiano, desenvolvedor e analista de suporte técnico formado em Ciência da Computação. C#, SQL e desenvolvimento web." />
+    <link rel="icon" type="image/png" href="imagens/J (2).png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,14 +20,15 @@
     <div class="bg-noise"></div>
 
     <header class="header">
-      <div class="logo">Transformando ideias em experiências digitais</div>
+      <div class="logo">Jesus Tadeu Bressiano</div>
       <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="site-nav">
         <span></span><span></span><span></span>
       </button>
       <nav class="nav" id="site-nav">
         <a href="#sobre" class="nav-link">Sobre</a>
         <a href="#projetos" class="nav-link">Projetos</a>
-        <a href="#ferramentas" class="nav-link">Ferramentas</a>
+        <a href="#experiencia" class="nav-link">Experiência</a>
+        <a href="#ferramentas" class="nav-link">Competências</a>
         <a href="#contato" class="nav-link">Contato</a>
       </nav>
     </header>
@@ -36,18 +38,26 @@
       <section class="hero" id="sobre" data-section>
         <div class="hero-content">
           <div class="hero-text">
-            <p class="tag">Disponível para novos projetos</p>
+            <p class="tag">Aberto a oportunidades</p>
             <h1>
               Olá, eu sou <span class="accent">Jesus Tadeu Bressiano</span><br />
-              <span class="outline" id="animated-title">Desenvolvedor FullStack</span>
+              <span class="outline" id="animated-title">Desenvolvedor Full Stack</span>
             </h1>
             <p class="hero-subtitle">
-              Crio soluções digitais completas, do front-end ao back-end, com foco em performance,
-               usabilidade e experiências interativas.
+              Formado em Ciência da Computação, atuo como Analista de Suporte Técnico com SQL e C#
+              e desenvolvo aplicações web com HTML, CSS e JavaScript.
             </p>
             <div class="hero-actions">
               <a href="#projetos" class="btn primary">Ver projetos</a>
               <a href="#contato" class="btn ghost">Falar comigo</a>
+              <a href="curriculo/CV-Jesus-Tadeu-Bressiano.pdf" class="btn ghost" download="CV - Jesus Tadeu Bressiano.pdf">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Baixar currículo
+              </a>
             </div>
             <div class="hero-socials">
               <span>Redes</span>
@@ -55,7 +65,7 @@
                 <a href="https://www.instagram.com/tadeu_bressiano/" target="_blank" rel="noopener noreferrer" class="social-btn">
                   <span>Instagram</span>
                 </a>
-                <a href="https://www.linkedin.com/in/jesus-bressiano-b7512120a/" target="_blank" rel="noopener noreferrer" class="social-btn">
+                <a href="https://www.linkedin.com/in/jesus-tadeu-bressiano-b7512120a/" target="_blank" rel="noopener noreferrer" class="social-btn">
                   <span>LinkedIn</span>
                 </a>
                 <a href="https://wa.me/5516991076826" target="_blank" rel="noopener noreferrer" class="social-btn">
@@ -75,23 +85,19 @@
               </div>
               <div class="profile-info">
                 <p class="profile-name">Jesus Tadeu Bressiano</p>
-                <p class="profile-role">Full Stack • Software & Hardware</p>
+                <p class="profile-role">Desenvolvedor • Analista de Suporte</p>
                 <div class="profile-tags">
                   <span>C#</span>
+                  <span>SQL</span>
                   <span>JavaScript</span>
-                  <span>HTML5</span>
                 </div>
               </div>
             </div>
             <div class="floating-badge" data-parallax>
               <span>+2</span>
-              <p>Experiência em desenvolvimento de software e TI</p>
+              <p>anos de experiência em desenvolvimento e suporte de TI</p>
             </div>
           </div>
-        </div>
-
-        <div class="scroll-indicator">
-          <div class="scroll-line"></div>
         </div>
       </section>
 
@@ -102,159 +108,267 @@
             <p class="tag">Selecionados</p>
             <h2>Projetos em destaque</h2>
             <p class="section-subtitle">
-              Projetos que demonstram a aplicação de boas práticas em 
-              desenvolvimento de software e interface.
+              Projetos acadêmicos e pessoais com desenvolvimento web, C# e Unity,
+              incluindo meu TCC em realidade virtual.
             </p>
           </div>
-          <button class="btn ghost" id="surprise-project">Surpreenda-se</button>
+          <button class="btn ghost" id="surprise-project">Projeto aleatório</button>
         </div>
 
-        <div class="projects-list" id="projects-grid"></div>
+        <div class="carousel" data-carousel>
+          <button class="carousel-arrow prev" type="button" aria-label="Projetos anteriores">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <div class="projects-list carousel-track" id="projects-grid"></div>
+          <button class="carousel-arrow next" type="button" aria-label="Próximos projetos">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
       </section>
 
-      <!-- EXPERIÊNCIAS / PROCESSO -->
-      <section class="section experience" data-section>
+      <!-- EXPERIÊNCIA PROFISSIONAL E FORMAÇÃO -->
+      <section class="section experience" id="experiencia" data-section>
         <div class="section-header">
           <p class="tag">Experiência</p>
-          <h2>Como entrego valor</h2>
+          <h2>Experiência profissional</h2>
           <p class="section-subtitle">
-            Processos bem definidos, comunicação clara e foco em soluções eficientes,
-             do planejamento à entrega final.
+            Minha trajetória do desenvolvimento front-end ao suporte técnico a sistemas.
           </p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="dot current"></div>
+            <div>
+              <h3>Analista de Suporte Técnico Júnior</h3>
+              <p class="timeline-meta">Moovefy · fev 2026 — atual</p>
+              <p>Suporte técnico a sistemas, utilizando SQL para consultas e análise de dados, C# para análise e
+                resolução de problemas e Inteligência Artificial para apoiar soluções tecnológicas.</p>
+              <div class="chip-row">
+                <span class="chip">SQL</span>
+                <span class="chip">C#</span>
+                <span class="chip">Inteligência Artificial</span>
+                <span class="chip">Suporte a sistemas</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="dot"></div>
+            <div>
+              <h3>Estagiário de T.I</h3>
+              <p class="timeline-meta">Prefeitura Municipal de Iacanga · mar 2025 — jan 2026</p>
+              <p>Suporte técnico a usuários e sistemas, com manutenção de computadores, notebooks, monitores e
+                impressoras. Consultas e manutenção de banco de dados SQL, rotinas de backup e sistemas de monitoramento.</p>
+              <div class="chip-row">
+                <span class="chip">SQL</span>
+                <span class="chip">Backup</span>
+                <span class="chip">Suporte ao usuário</span>
+                <span class="chip">Hardware</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="dot"></div>
+            <div>
+              <h3>Desenvolvedor Front-End Jr</h3>
+              <p class="timeline-meta">Grupo Preven · mai 2024 — nov 2024</p>
+              <p>Desenvolvimento front-end de um site de anúncios com HTML, CSS, JavaScript e frameworks,
+                com foco na experiência do usuário. Criação e manutenção de páginas e componentes da interface.</p>
+              <div class="chip-row">
+                <span class="chip">HTML</span>
+                <span class="chip">CSS</span>
+                <span class="chip">JavaScript</span>
+                <span class="chip">Front-end</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-header subsection">
+          <p class="tag">Formação</p>
+          <h2>Formação e cursos</h2>
         </div>
         <div class="timeline">
           <div class="timeline-item">
             <div class="dot"></div>
             <div>
-              <h3>Implementação com boas práticas de desenvolvimento</h3>
-              <p>Criação de soluções full stack, com código organizado, foco em desempenho, 
-                usabilidade e escalabilidade.</p>
-              <span class="chip">Front-end</span>
-              <span class="chip">Back-end</span>
-              <span class="chip">Integrações</span>
+              <h3>Ciência da Computação</h3>
+              <p class="timeline-meta">Unisagrado · Bauru · concluído em 2025</p>
+              <p>Graduação com TCC em realidade virtual: o projeto Universo Virtual, desenvolvido em Unity e C#.</p>
             </div>
           </div>
           <div class="timeline-item">
             <div class="dot"></div>
             <div>
-              <h3>Validação, ajustes e melhoria contínua</h3>
-              <p>Testes funcionais, correções e otimizações para garantir estabilidade 
-                e evolução do sistema.</p>
-              <span class="chip">Testes</span>
-              <span class="chip">Manutenção</span>
-              <span class="chip">Performance</span>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="dot"></div>
-            <div>
-              <h3>Análise & Definição da Solução</h3>
-              <p>Compreensão do problema, objetivos do projeto e requisitos técnicos para
-                 definir a solução mais adequada.</p>
-              <span class="chip">Análise</span>
-              <span class="chip">Requisitos</span>
-              <span class="chip">Estratégia</span>
+              <h3>Cursos complementares</h3>
+              <div class="chip-row">
+                <span class="chip">CC50 – Harvard</span>
+                <span class="chip">Full Stack – Alura (cursando)</span>
+                <span class="chip">Discover – Rocketseat</span>
+                <span class="chip">Hardware e Robótica – Microcamp</span>
+                <span class="chip">Inglês – Wizard</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- FERRAMENTAS / ECOSSISTEMA -->
+      <!-- COMPETÊNCIAS -->
       <section class="section tools" id="ferramentas" data-section>
         <div class="section-header">
-          <p class="tag">Ferramentas</p>
-          <h2>Ferramentas que domino</h2>
+          <p class="tag">Competências</p>
+          <h2>Áreas de atuação</h2>
           <p class="section-subtitle">
-            Do editor de código às ferramentas de colaboração, este é o conjunto que uso no dia a dia
-            para manter o fluxo de trabalho rápido, organizado e com qualidade.
+            As tecnologias e áreas com que trabalho no dia a dia, do desenvolvimento ao suporte técnico.
           </p>
         </div>
 
-        <div class="tools-grid">
-          <article class="tool-card">
-            <div class="tool-pill">🔧 Hardware & Manutenção</div>
-            <h3>Montagem, manutenção e suporte de equipamentos.</h3>
-            <p>
-              Experiência prática com computadores, diagnóstico de falhas e configuração de sistemas.</p>
-            <ul>
-              <li>Montagem e substituição de componentes</li>
-              <li>Manutenção preventiva e corretiva</li>
-              <li>Diagnóstico de problemas de hardware</li>
-            </ul>
-            <div class="chip-row">
-              <span class="chip">Hardware</span>
-              <span class="chip">Manutenção</span>
-              <span class="chip">Suporte</span>
-            </div>
-          </article>
+        <div class="carousel" data-carousel>
+          <button class="carousel-arrow prev" type="button" aria-label="Competências anteriores">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <div class="tools-grid carousel-track">
+            <article class="tool-card">
+              <div class="tool-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                Desenvolvimento Web
+              </div>
+              <h3>Criação de aplicações web completas.</h3>
+              <p>
+                Desenvolvimento de soluções web utilizando tecnologias modernas no front-end e integração com lógica de aplicação.
+              </p>
+              <ul>
+                <li>Estruturação com HTML e CSS</li>
+                <li>Interatividade com JavaScript</li>
+                <li>Organização de código e boas práticas</li>
+              </ul>
+              <div class="chip-row">
+                <span class="chip">HTML5</span>
+                <span class="chip">CSS</span>
+                <span class="chip">JavaScript</span>
+              </div>
+            </article>
 
-          <article class="tool-card">
-            <div class="tool-pill">🎮 Unity</div>
-            <h3>Desenvolvimento de aplicações interativas.</h3>
-            <p>
-              Criação de projetos em Unity, interação do usuário e organização 
-              de cenas e scripts.
-            </p>
-            <ul>
-              <li>Programação em C# para jogos e apps</li>
-              <li>Controle de cenas, objetos e interações</li>
-              <li>Estruturação de projetos Unity</li>
-            </ul>
-            <div class="chip-row">
-              <span class="chip">Unity</span>
-              <span class="chip">C#</span>
-              <span class="chip">Interatividade</span>
-            </div>
-          </article>
+            <article class="tool-card">
+              <div class="tool-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                Banco de Dados
+              </div>
+              <h3>Consultas e análise de dados com SQL.</h3>
+              <p>
+                Uso de SQL no dia a dia para consultar, analisar e manter os dados dos sistemas.
+              </p>
+              <ul>
+                <li>Consultas e análise de dados</li>
+                <li>Manutenção de bancos de dados</li>
+                <li>Rotinas de backup</li>
+              </ul>
+              <div class="chip-row">
+                <span class="chip">SQL</span>
+                <span class="chip">Banco de Dados</span>
+                <span class="chip">Backup</span>
+              </div>
+            </article>
 
-          <article class="tool-card">
-            <div class="tool-pill">🖥️ Tecnologia da Informação (TI)</div>
-            <h3>Suporte e organização de ambientes de TI.</h3>
-            <p>
-              Atuação em suporte técnico, configuração de sistemas e apoio à infraestrutura.
-            </p>
-            <ul>
-              <li>Suporte a usuários e sistemas</li>
-              <li>Configuração de softwares e ambientes</li>
-              <li>Organização e manutenção de ambientes</li>
-            </ul>
-            <div class="chip-row">
-              <span class="chip">TI</span>
-              <span class="chip">Infraestrutura</span>
-              <span class="chip">Sistemas</span>
-            </div>
-          </article>
+            <article class="tool-card">
+              <div class="tool-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                Suporte Técnico (TI)
+              </div>
+              <h3>Suporte a sistemas e ambientes de TI.</h3>
+              <p>
+                Atuação em suporte técnico, análise e resolução de problemas e configuração de sistemas.
+              </p>
+              <ul>
+                <li>Suporte a usuários e sistemas</li>
+                <li>Análise de problemas com C#</li>
+                <li>Configuração de softwares e ambientes</li>
+              </ul>
+              <div class="chip-row">
+                <span class="chip">Suporte</span>
+                <span class="chip">C#</span>
+                <span class="chip">Sistemas</span>
+              </div>
+            </article>
 
-          <article class="tool-card">
-            <div class="tool-pill">🌐 Desenvolvimento Full Stack</div>
-            <h3>Criação de aplicações web completas.</h3>
-            <p>
-              Desenvolvimento de soluções web utilizando tecnologias modernas no front-end e integração com lógica de aplicação.
-            </p>
-            <ul>
-              <li>Estruturação com HTML e CSS</li>
-              <li>Interatividade com JavaScript</li>
-              <li>Organização de código e boas práticas</li>
-            </ul>
-            <div class="chip-row">
-              <span class="chip">HTML5</span>
-              <span class="chip">CSS</span>
-              <span class="chip">JavaScript</span>
-            </div>
-          </article>
+            <article class="tool-card">
+              <div class="tool-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"></path></svg>
+                Inteligência Artificial
+              </div>
+              <h3>IA aplicada ao suporte e ao desenvolvimento.</h3>
+              <p>
+                Uso de ferramentas de Inteligência Artificial para agilizar a análise e a resolução de problemas.
+              </p>
+              <ul>
+                <li>Apoio na análise de problemas</li>
+                <li>Suporte a soluções tecnológicas</li>
+                <li>Mais agilidade no dia a dia</li>
+              </ul>
+              <div class="chip-row">
+                <span class="chip">IA</span>
+                <span class="chip">Produtividade</span>
+                <span class="chip">Suporte</span>
+              </div>
+            </article>
+
+            <article class="tool-card">
+              <div class="tool-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                Unity
+              </div>
+              <h3>Desenvolvimento de aplicações interativas.</h3>
+              <p>
+                Criação de projetos em Unity, interação do usuário e organização
+                de cenas e scripts.
+              </p>
+              <ul>
+                <li>Programação em C# para jogos e apps</li>
+                <li>Controle de cenas, objetos e interações</li>
+                <li>Estruturação de projetos Unity</li>
+              </ul>
+              <div class="chip-row">
+                <span class="chip">Unity</span>
+                <span class="chip">C#</span>
+                <span class="chip">Realidade Virtual</span>
+              </div>
+            </article>
+
+            <article class="tool-card">
+              <div class="tool-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                Hardware
+              </div>
+              <h3>Montagem, manutenção e suporte de equipamentos.</h3>
+              <p>
+                Experiência prática com computadores, diagnóstico de falhas e configuração de sistemas.</p>
+              <ul>
+                <li>Montagem e substituição de componentes</li>
+                <li>Manutenção preventiva e corretiva</li>
+                <li>Diagnóstico de problemas de hardware</li>
+              </ul>
+              <div class="chip-row">
+                <span class="chip">Hardware</span>
+                <span class="chip">Manutenção</span>
+                <span class="chip">Diagnóstico</span>
+              </div>
+            </article>
+          </div>
+          <button class="carousel-arrow next" type="button" aria-label="Próximas competências">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
         </div>
       </section>
 
-      <!-- CONTATO - VERSÃO PREMIUM E CHAMATIVA -->
+      <!-- CONTATO -->
       <section class="section contact" id="contato" data-section>
         <div class="contact-wrapper">
           <div class="contact-hero">
             <div class="contact-hero-text">
-              <p class="tag">Conecte-se</p>
-              <h2>Escolha como prefere me contatar</h2>
+              <p class="tag">Contato</p>
+              <h2>Vamos conversar</h2>
               <p class="section-subtitle">
-                Estou pronto para transformar suas ideias em experiências digitais incríveis. 
-                É só escolher o canal que você prefere!
+                Estou aberto a oportunidades em desenvolvimento e suporte de TI.
+                Escolha o canal de sua preferência.
               </p>
             </div>
           </div>
@@ -264,7 +378,7 @@
             <!-- E-mail -->
             <div class="social-card email-card">
               <div class="social-card-icon">
-                <span class="icon-envelope">✉️</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg>
                 <div class="icon-glow"></div>
               </div>
               <div class="social-card-content">
@@ -279,7 +393,7 @@
                 <a
                   href="https://mail.google.com/mail/?view=cm&fs=1&to=jesustadeubressiano@gmail.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   class="email-option-btn"
                 >
                   Gmail
@@ -296,12 +410,12 @@
             <!-- WhatsApp -->
             <a href="https://wa.me/5516991076826?text=Olá%20Jesus!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre..." target="_blank" rel="noopener noreferrer" class="social-card whatsapp-card">
               <div class="social-card-icon">
-                <span class="icon-whatsapp">📱</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                 <div class="icon-glow"></div>
               </div>
               <div class="social-card-content">
                 <h3>WhatsApp</h3>
-                <p>Resposta rápida e direta</p>
+                <p>(16) 99107-6826</p>
               </div>
               <div class="social-card-cta">
                 <span>Iniciar conversa</span>
@@ -310,9 +424,9 @@
             </a>
 
             <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/jesus-bressiano-b7512120a/" target="_blank" rel="noopener noreferrer" class="social-card linkedin-card">
+            <a href="https://www.linkedin.com/in/jesus-tadeu-bressiano-b7512120a/" target="_blank" rel="noopener noreferrer" class="social-card linkedin-card">
               <div class="social-card-icon">
-                <span class="icon-linkedin">💼</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                 <div class="icon-glow"></div>
               </div>
               <div class="social-card-content">
@@ -320,7 +434,7 @@
                 <p>Perfil profissional completo</p>
               </div>
               <div class="social-card-cta">
-                <span>Conectar no LinkedIn</span>
+                <span>Ver perfil</span>
                 <div class="cta-arrow">→</div>
               </div>
             </a>
@@ -328,12 +442,12 @@
             <!-- GitHub -->
             <a href="https://github.com/Taads" target="_blank" rel="noopener noreferrer" class="social-card github-card">
               <div class="social-card-icon">
-                <span class="icon-github">⚡</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                 <div class="icon-glow"></div>
               </div>
               <div class="social-card-content">
                 <h3>GitHub</h3>
-                <p>Explore meus projetos</p>
+                <p>Código dos meus projetos</p>
               </div>
               <div class="social-card-cta">
                 <span>Ver repositórios</span>
@@ -368,8 +482,8 @@
           <p id="focus-description"></p>
           <div class="chip-row" id="focus-tags"></div>
           <div class="project-links focus-links">
-            <a href="#" target="_blank" rel="noreferrer" id="focus-live">Ver projeto</a>
-            <a href="#" target="_blank" rel="noreferrer" id="focus-repo">Código no GitHub</a>
+            <a href="#" target="_blank" rel="noopener noreferrer" id="focus-live">Ver projeto</a>
+            <a href="#" target="_blank" rel="noopener noreferrer" id="focus-repo">Código no GitHub</a>
           </div>
         </div>
       </div>
@@ -379,26 +493,26 @@
       <div class="footer-content">
         <div class="footer-section">
           <h3>Jesus Tadeu Bressiano</h3>
-          <p>Desenvolvedor Full Stack especializado em criar soluções digitais completas, do front-end ao back-end.</p>
+          <p>Desenvolvedor e Analista de Suporte Técnico, formado em Ciência da Computação. C#, SQL e desenvolvimento web.</p>
           <div class="footer-socials">
-            <a href="https://www.linkedin.com/in/jesus-bressiano-b7512120a/" target="_blank" rel="noreferrer" class="footer-social-link" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/jesus-tadeu-bressiano-b7512120a/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                 <rect x="2" y="9" width="4" height="12"></rect>
                 <circle cx="4" cy="4" r="2"></circle>
               </svg>
             </a>
-            <a href="https://github.com/Taads" target="_blank" rel="noreferrer" class="footer-social-link" aria-label="GitHub">
+            <a href="https://github.com/Taads" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="GitHub">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
               </svg>
             </a>
-            <a href="https://wa.me/5516991076826" target="_blank" rel="noreferrer" class="footer-social-link" aria-label="WhatsApp">
+            <a href="https://wa.me/5516991076826" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WhatsApp">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
               </svg>
             </a>
-            <a href="https://www.instagram.com/tadeu_bressiano/" target="_blank" rel="noreferrer" class="footer-social-link" aria-label="Instagram">
+            <a href="https://www.instagram.com/tadeu_bressiano/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -413,7 +527,8 @@
           <nav class="footer-nav">
             <a href="#sobre">Sobre</a>
             <a href="#projetos">Projetos</a>
-            <a href="#ferramentas">Ferramentas</a>
+            <a href="#experiencia">Experiência</a>
+            <a href="#ferramentas">Competências</a>
             <a href="#contato">Contato</a>
           </nav>
         </div>
@@ -423,6 +538,7 @@
           <div class="footer-contact">
             <a href="mailto:jesustadeubressiano@gmail.com">jesustadeubressiano@gmail.com</a>
             <a href="https://wa.me/5516991076826">+55 (16) 99107-6826</a>
+            <a href="curriculo/CV-Jesus-Tadeu-Bressiano.pdf" download="CV - Jesus Tadeu Bressiano.pdf">Baixar currículo (PDF)</a>
           </div>
         </div>
       </div>
@@ -431,7 +547,6 @@
         <div class="footer-divider"></div>
         <div class="footer-copyright">
           <p>© <span id="year"></span> Jesus Tadeu Bressiano. Todos os direitos reservados.</p>
-          <p class="footer-made">Feito com <span class="heart">❤️</span> e muito código</p>
         </div>
       </div>
 
